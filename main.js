@@ -20,7 +20,7 @@ const player2 = {
   },
 };
 
-function createPlayer(className, name, health) {
+function createPlayer(className, player) {
   const $player = document.createElement('div');
   $player.classList.add(className);
 
@@ -29,18 +29,18 @@ function createPlayer(className, name, health) {
 
   const $life = document.createElement('div');
   $life.classList.add('life');
-  $life.style.width = health + '%';
+  $life.style.width = player.hp + '%';
 
   const $name = document.createElement('div');
   $name.classList.add('name');
-  $name.innerText = name;
+  $name.innerText = player.name;
 
   const $character = document.createElement('div');
   $character.classList.add('character');
 
   const $playerImage = document.createElement('img');
-  $playerImage.src = 'http://reactmarathon-api.herokuapp.com/assets/subzero.gif';
-  $playerImage.alt = name;
+  $playerImage.src = player.img;
+  $playerImage.alt = player.name;
 
   $character.appendChild($playerImage);
   $progressBar.appendChild($life);
@@ -52,5 +52,5 @@ function createPlayer(className, name, health) {
   $arenas.appendChild($player);
 }
 
-createPlayer('player1', 'SCORPION', 50);
-createPlayer('player2', 'SUB-ZERO', 80);
+createPlayer('player1', player1);
+createPlayer('player2', player2);
